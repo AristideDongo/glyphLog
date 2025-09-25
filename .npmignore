@@ -1,0 +1,23 @@
+src/
+tests/
+*.test.ts
+*.spec.ts
+example.ts
+
+# Config files
+.eslintrc.js
+.prettierrc
+tsconfig.json
+rollup.config.js
+vitest.config.ts
+.github/
+.gitignore
+
+# Development
+node_modules/
+coverage/
+logs/
+*.log
+
+# Build artifacts we don't want to publish
+*.tsbuildinfo
