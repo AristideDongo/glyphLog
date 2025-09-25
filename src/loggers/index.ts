@@ -97,7 +97,7 @@ export class Logger implements TypedLogger, PerformanceLogger {
       level,
       message,
       timestamp: new Date(),
-      context: context || {},
+      context,
       error,
       meta: this.defaultMeta,
     };

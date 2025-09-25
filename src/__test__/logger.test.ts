@@ -25,6 +25,51 @@ describe('Logger', () => {
       const logs = memoryTransport.getLogs();
       
       expect(logs).toHaveLength(1);
+      expect(logs[0]?.level).toBe(LogLevel.TRACE);
+      expect(logs[0]?.message).toBe('Test trace message');
+    });
+
+    it('should log debug messages with context', () => {
+      logger.debug('Test debug message', { userId: '123' });
+      const logs = memoryTransport.getLogs();
+      
+      expect(logs).toHaveLength(1);
+      expect(logs[0]?.level).toBe(LogLevel.DEBUG);
+      expect(logs[0]?.context).toEqual({ userId: '123' });
+    });
+
+    it('should log info messages', () => {
+      logger.info('Test info message');
+      const logs = memoryTransport.getLogs();
+      
+      expect(logs).toHaveLength(1);
+      expect(logs[0]?.level).toBe(LogLevel.INFO);
+    });
+
+    it('should log warnings', () => {
+      logger.warn('Test warning message');
+      const logs = memoryTransport.getLogs();
+      
+      expect(logs).toHaveLength(1);
+      expect(logs[0]?.level).toBe(LogLevel.WARN);
+    });
+
+    it('should log errors with error objects', () => {
+      const testError = new Error('Test error');
+      logger.error('Test error message', testError);
+      const logs = memoryTransport.getLogs();
+      
+      expect(logs).toHaveLength(1);
+      expect(logs[0]?.level).toBe(LogLevel.ERROR);
+      expect(logs[0]?.error).toBe(testError);
+    });
+
+    it('should log fatal errors', () => {
+      const testError = new Error('Fatal error');
+      logger.fatal('Test fatal message', testError);
+      const logs = memoryTransport.getLogs();
+      
+      expect(logs).toHaveLength(1);
       expect(logs[0]?.level).toBe(LogLevel.FATAL);
       expect(logs[0]?.error).toBe(testError);
     });
@@ -245,7 +290,7 @@ describe('Logger', () => {
       
       const logs = memoryTransport.getLogs();
       expect(logs).toHaveLength(1);
-      expect(logs[0]?.context).toBeUndefined();
+      expect(logs[0]?.context).toBe(undefined);
     });
 
     it('should handle circular references in context', () => {
@@ -302,49 +347,4 @@ describe('Logger', () => {
       await expect(logger.close()).resolves.not.toThrow();
     });
   });
-});LogLevel.TRACE);
-      expect(logs[0]?.message).toBe('Test trace message');
-    });
-
-    it('should log debug messages with context', () => {
-      logger.debug('Test debug message', { userId: '123' });
-      const logs = memoryTransport.getLogs();
-      
-      expect(logs).toHaveLength(1);
-      expect(logs[0]?.level).toBe(LogLevel.DEBUG);
-      expect(logs[0]?.context).toEqual({ userId: '123' });
-    });
-
-    it('should log info messages', () => {
-      logger.info('Test info message');
-      const logs = memoryTransport.getLogs();
-      
-      expect(logs).toHaveLength(1);
-      expect(logs[0]?.level).toBe(LogLevel.INFO);
-    });
-
-    it('should log warnings', () => {
-      logger.warn('Test warning message');
-      const logs = memoryTransport.getLogs();
-      
-      expect(logs).toHaveLength(1);
-      expect(logs[0]?.level).toBe(LogLevel.WARN);
-    });
-
-    it('should log errors with error objects', () => {
-      const testError = new Error('Test error');
-      logger.error('Test error message', testError);
-      const logs = memoryTransport.getLogs();
-      
-      expect(logs).toHaveLength(1);
-      expect(logs[0]?.level).toBe(LogLevel.ERROR);
-      expect(logs[0]?.error).toBe(testError);
-    });
-
-    it('should log fatal errors', () => {
-      const testError = new Error('Fatal error');
-      logger.fatal('Test fatal message', testError);
-      const logs = memoryTransport.getLogs();
-      
-      expect(logs).toHaveLength(1);
-      expect(logs[0]?.level).toBe(
+});
