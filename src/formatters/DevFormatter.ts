@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 import chalk from 'chalk';
-import { LogFormatter } from '../types/formatters/log-formatter.interface';
-import { LogEntry } from '../types/log-entry.interface';
-import { LogLevel } from '../types/enums/log-level.enum';
+import { LogFormatter } from '../types/formatters/log-formatter.interface.js';
+import { LogEntry } from '../types/log-entry.interface.js';
+import { LogLevel } from '../types/enums/log-level.enum.js';
 
 /**
  * Development-friendly formatter

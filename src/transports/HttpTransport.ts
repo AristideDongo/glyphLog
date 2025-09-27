@@ -1,7 +1,7 @@
-import { LogLevel } from '../types/enums/log-level.enum';
-import { LogTransport } from '../types/transports/log-transport.interface';
-import { HttpTransportConfig } from '../types/transports/http-transport.config';
-import { LogEntry } from '../types/log-entry.interface';
+import { LogLevel } from '../types/enums/log-level.enum.js';
+import { LogTransport } from '../types/transports/log-transport.interface.js';
+import { HttpTransportConfig } from '../types/transports/http-transport.config.js';
+import { LogEntry } from '../types/log-entry.interface.js';
 
 /**
  * HTTP transport for sending logs to a remote server

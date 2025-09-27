@@ -1,10 +1,10 @@
-import { Logger } from './loggers';
-import { ConsoleTransport, FileTransport } from './transports';
-import { LogLevel } from './types/enums/log-level.enum';
-import { LoggerConfig } from './types/logger/logger-config.interface';
-import { LoggerFactoryOptions } from './types/logger/logger-factory-options.interface';
-import { TypedLogger } from './types/logger/typed-logger.interface';
-
+import { Logger } from './loggers/index.js';
+import { ConsoleTransport, FileTransport } from './transports/index.js';
+import { LogLevel } from './types/enums/log-level.enum.js';
+import { LoggerConfig } from './types/logger/logger-config.interface.js';
+import { LoggerFactoryOptions } from './types/logger/logger-factory-options.interface.js';
+import { TypedLogger } from './types/logger/typed-logger.interface.js';
+import { LogTransport } from './types/transports/log-transport.interface.js';
 /**
  * Manages the creation and lifecycle of logger instances.
  * This class follows a singleton pattern to ensure a single point of configuration.
@@ -92,11 +92,10 @@ export class LoggerFactory {
    * Creates a pre-configured logger optimized for production environments.
    * (e.g., JSON console output, file transport, info level).
    * @param name - The name for the production logger.
-   * @param logFile - Optional path to a file for log output.
-   * @returns A logger instance configured for production.
+   * @param logFile - Optional path to a file for log output.   * @returns A logger instance configured for production.
    */
   createProductionLogger(name: string, logFile?: string): TypedLogger {
-    const transports = [
+    const transports: LogTransport[] = [
       new ConsoleTransport({
         level: LogLevel.INFO,
         colors: false,
@@ -214,8 +213,8 @@ export const middleware = {
             entry.meta.caller = {
               function: match[1],
               file: match[2],
-              line: parseInt(match[3]),
-              column: parseInt(match[4]),
+              line: parseInt(match[3] ?? '0'),
+              column: parseInt(match[4] ?? '0'),
             };
           }
         }
@@ -296,7 +295,7 @@ export const debug = (message: string, context?: Record<string, unknown>) =>
 export const info = (message: string, context?: Record<string, unknown>) => 
   defaultLogger.info(message, context);
 
-/** Logs a `warn` message using the default logger. */
+/** Logs a `warn` message using the `default` logger. */
 export const warn = (message: string, context?: Record<string, unknown>) => 
   defaultLogger.warn(message, context);
 

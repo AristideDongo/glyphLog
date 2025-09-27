@@ -1,8 +1,8 @@
-import { ConsoleFormatter, JsonFormatter } from '../formatters';
-import { LogLevel } from '../types/enums/log-level.enum';
-import { LogTransport } from '../types/transports/log-transport.interface';
-import { ConsoleTransportConfig } from '../types/transports/console-transport.config';
-import { LogEntry } from '../types/log-entry.interface';
+import { ConsoleFormatter, JsonFormatter } from '../formatters/index.js';
+import { LogLevel } from '../types/enums/log-level.enum.js';
+import { LogTransport } from '../types/transports/log-transport.interface.js';
+import { ConsoleTransportConfig } from '../types/transports/console-transport.config.js';
+import { LogEntry } from '../types/log-entry.interface.js';
 
 /**
  * Console transport for outputting logs to stdout/stderr

@@ -1,7 +1,7 @@
-import { createLogger, LoggerFactory, middleware } from "./factory";
-import { Logger } from "./loggers";
-import { ConsoleTransport, MemoryTransport } from "./transports";
-import { LogLevel } from "./types/enums/log-level.enum";
+import { createLogger, LoggerFactory, middleware } from "./factory.js";
+import { Logger } from "./loggers/index.js";
+import { ConsoleTransport, MemoryTransport } from "./transports/index.js";
+import { LogLevel } from "./types/enums/log-level.enum.js";
 
 /**
  * Basic usage example
@@ -108,19 +108,19 @@ function middlewareExample() {
 function performanceExample() {
   console.log('\n=== Performance Logging ===');
   
-  const logger = createLogger('performance');
+  // const logger = createLogger('performance');
 
-  // Timer example
-  logger.time('database-query');
-  setTimeout(() => {
-    logger.timeEnd('database-query');
-  }, 100);
+  // // Timer example
+  // logger.time('database-query');
+  // setTimeout(() => {
+  //   logger.timeEnd('database-query');
+  // }, 100);
 
-  // Profile example
-  logger.profile('user-processing');
-  setTimeout(() => {
-    logger.profileEnd('user-processing');
-  }, 200);
+  // // Profile example
+  // logger.profile('user-processing');
+  // setTimeout(() => {
+  //   logger.profileEnd('user-processing');
+  // }, 200);
 }
 
 /**

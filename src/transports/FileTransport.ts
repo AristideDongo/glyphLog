@@ -1,9 +1,9 @@
 import fs from 'fs/promises';
-import { JsonFormatter, SimpleFormatter } from '../formatters';
-import { LogLevel } from '../types/enums/log-level.enum';
-import { LogTransport } from '../types/transports/log-transport.interface';
-import { LogEntry } from '../types/log-entry.interface';
-import { FileTransportConfig } from '../types/transports/file-transport.config';
+import { JsonFormatter, SimpleFormatter } from '../formatters/index.js';
+import { LogLevel } from '../types/enums/log-level.enum.js';
+import { LogTransport } from '../types/transports/log-transport.interface.js';
+import { LogEntry } from '../types/log-entry.interface.js';
+import { FileTransportConfig } from '../types/transports/file-transport.config.js';
 
 /**
  * File transport for writing logs to files with rotation

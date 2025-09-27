@@ -1,9 +1,9 @@
-import { BaseLogger } from "./BaseLogger";
-import { LogLevel } from "../types/enums/log-level.enum";
-import { LogMeta } from "../types/log-meta.interface";
-import { LoggerConfig } from "../types/logger/logger-config.interface";
-import { PerformanceLogger } from "../types/logger/performance-logger.interface";
-import { TypedLogger } from "../types/logger/typed-logger.interface";
+import { BaseLogger } from "./BaseLogger.js";
+import { LogLevel } from "../types/enums/log-level.enum.js";
+import { LogMeta } from "../types/log-meta.interface.js";
+import { LoggerConfig } from "../types/logger/logger-config.interface.js";
+import { PerformanceLogger } from "../types/logger/performance-logger.interface.js";
+import { TypedLogger } from "../types/logger/typed-logger.interface.js";
 
 /**
  * Main Logger class that extends BaseLogger with performance monitoring,

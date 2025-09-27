@@ -1,11 +1,10 @@
-import { LogLevel } from "../types/enums/log-level.enum";
-import { LogEntry } from "../types/log-entry.interface";
-import { LogMeta } from "../types/log-meta.interface";
-import { LogMiddleware } from "../types/log-middleware.type";
-import { LoggerConfig } from "../types/logger/logger-config.interface";
-import { TypedLogger } from "../types/logger/typed-logger.interface";
-import { LogTransport } from "../types/transports/log-transport.interface";
-
+import { LogLevel } from "../types/enums/log-level.enum.js";
+import { LogEntry } from "../types/log-entry.interface.js";
+import { LogMeta } from "../types/log-meta.interface.js";
+import { LogMiddleware } from "../types/log-middleware.type.js";
+import { LoggerConfig } from "../types/logger/logger-config.interface.js";
+import { TypedLogger } from "../types/logger/typed-logger.interface.js";
+import { LogTransport } from "../types/transports/log-transport.interface.js";
 /**
  * Abstract base class for the main logger.
  * Handles core logging logic, middleware, and transport management.

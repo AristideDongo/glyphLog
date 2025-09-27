@@ -1,6 +1,6 @@
-import { LogLevel } from '../types/enums/log-level.enum';
-import { LogTransport } from '../types/transports/log-transport.interface';
-import { LogEntry } from '../types/log-entry.interface';
+import { LogLevel } from '../types/enums/log-level.enum.js';
+import { LogTransport } from '../types/transports/log-transport.interface.js';
+import { LogEntry } from '../types/log-entry.interface.js';
 
 /**
  * Memory transport for testing and development
