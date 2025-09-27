@@ -4,8 +4,20 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://github.com/AristideDongo/logger-pack/workflows/CI/badge.svg)](https://github.com/AristideDongo/logger-pack/actions)
+[![Coverage Status](https://img.shields.io/coveralls/github/AristideDongo/logger-pack.svg?branch=main)](https://coveralls.io/github/AristideDongo/logger-pack?branch=main)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/logify)](https://bundlephobia.com/package/logify)
+[![npm downloads](https://img.shields.io/npm/dm/logify)](https://www.npmjs.com/package/logify)
 
 Une bibliothèque de logging moderne, entièrement typée et configurable pour TypeScript/JavaScript avec support des transports multiples, middleware, et logging structuré.
+
+### 🤔 Pourquoi choisir Logify ?
+
+Dans un écosystème avec des loggers matures comme Winston ou Pino, Logify se distingue par :
+
+-   **Une expérience TypeScript native :** Contrairement à d'autres, Logify est écrit dès le départ en TypeScript pour les développeurs TypeScript. Profitez d'une auto-complétion parfaite, de types stricts et d'une configuration entièrement typée sans effort.
+-   **Simplicité et Modernité :** Une API intuitive et moderne qui ne nécessite pas une configuration complexe pour démarrer. Les `factories` et la configuration par environnement sont intégrées pour suivre les meilleures pratiques actuelles.
+-   **Performance out-of-the-box :** Des outils de profiling (`time`, `profile`) sont inclus nativement pour vous aider à mesurer et optimiser les performances de votre code sans ajouter de dépendances.
+-   **Extensibilité pensée pour les tests :** Le `MemoryTransport` intégré et une architecture claire facilitent grandement les tests de vos logs.
 
 ## ✨ Fonctionnalités
 
@@ -47,6 +59,8 @@ logger.error('Something went wrong', new Error('Database connection failed'));
 ```
 
 ## 📚 Documentation détaillée
+
+Pour un guide complet de l'API et des options de configuration, veuillez consulter notre [site de documentation complet](https://aristidedongo.github.io/logger-pack/).
 
 ### Configuration de base
 
@@ -261,6 +275,14 @@ const logger = createLogger('app');
 // Ou explicitement
 const logger = createLogger('app', 'production');
 ```
+
+## 📖 Exemples avancés (Recettes)
+
+Découvrez des cas d'utilisation concrets et des intégrations dans le [répertoire d'exemples](https-github-com-aristidedongo-logger-pack-tree-main-examples) :
+
+-   **Intégration avec Express.js :** Un middleware pour logger automatiquement toutes les requêtes HTTP.
+-   **Alerting sur les erreurs critiques :** Comment utiliser `HttpTransport` pour envoyer des erreurs vers un service externe comme Sentry ou Slack.
+-   **Rotation de logs avancée :** Configuration détaillée du `FileTransport` pour la gestion des logs en production.
 
 ## 🧪 Tests
 
