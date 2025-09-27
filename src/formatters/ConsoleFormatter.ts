@@ -17,26 +17,24 @@ export class ConsoleFormatter implements LogFormatter {
   }
 
   format(entry: LogEntry): string {
-    const timestamp = this.showTimestamp 
+    const timestamp = this.showTimestamp
       ? dayjs(entry.timestamp).format('YYYY-MM-DD HH:mm:ss.SSS')
       : '';
 
     const level = this.formatLevel(entry.level);
-    const message = entry.message;
+    const { message } = entry;
     const context = entry.context ? this.formatContext(entry.context) : '';
     const error = entry.error ? this.formatError(entry.error) : '';
     const meta = entry.meta ? this.formatMeta(entry.meta) : '';
 
-    const parts = [timestamp, level, message, context, error, meta]
-      .filter(Boolean)
-      .join(' ');
+    const parts = [timestamp, level, message, context, error, meta].filter(Boolean).join(' ');
 
     return parts;
   }
 
   private formatLevel(level: LogLevel): string {
     const levelStr = LogLevel[level].padEnd(5);
-    
+
     if (!this.colors) return `[${levelStr}]`;
 
     const colorMap = {
@@ -54,11 +52,11 @@ export class ConsoleFormatter implements LogFormatter {
 
   private formatContext(context: Record<string, unknown>): string {
     if (Object.keys(context).length === 0) return '';
-    
+
     const formatted = Object.entries(context)
       .map(([key, value]) => `${key}=${this.formatValue(value)}`)
       .join(' ');
-    
+
     return this.colors ? chalk.cyan(`{${formatted}}`) : `{${formatted}}`;
   }
 
@@ -71,13 +69,15 @@ export class ConsoleFormatter implements LogFormatter {
     const formatted = Object.entries(meta)
       .map(([key, value]) => `${key}=${this.formatValue(value)}`)
       .join(' ');
-    
+
     return this.colors ? chalk.magenta(`[${formatted}]`) : `[${formatted}]`;
   }
 
   private formatValue(value: unknown): string {
     if (typeof value === 'string') return `"${value}"`;
-    if (typeof value === 'object') return JSON.stringify(value);
+    if (typeof value === 'object' && value !== null) {
+      return JSON.stringify(value);
+    }
     return String(value);
   }
 }

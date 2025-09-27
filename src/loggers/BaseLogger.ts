@@ -1,10 +1,10 @@
-import { LogLevel } from "../types/enums/log-level.enum.js";
-import { LogEntry } from "../types/log-entry.interface.js";
-import { LogMeta } from "../types/log-meta.interface.js";
-import { LogMiddleware } from "../types/log-middleware.type.js";
-import { LoggerConfig } from "../types/logger/logger-config.interface.js";
-import { TypedLogger } from "../types/logger/typed-logger.interface.js";
-import { LogTransport } from "../types/transports/log-transport.interface.js";
+import { LogLevel } from '../types/enums/log-level.enum.js';
+import { LogEntry } from '../types/log-entry.interface.js';
+import { LogMeta } from '../types/log-meta.interface.js';
+import { LogMiddleware } from '../types/log-middleware.type.js';
+import { LoggerConfig } from '../types/logger/logger-config.interface.js';
+import { TypedLogger } from '../types/logger/typed-logger.interface.js';
+import { LogTransport } from '../types/transports/log-transport.interface.js';
 /**
  * Abstract base class for the main logger.
  * Handles core logging logic, middleware, and transport management.
@@ -52,18 +52,13 @@ export abstract class BaseLogger implements TypedLogger {
 
   fatal(message: string, error?: Error, context?: Record<string, unknown>): void {
     this.log(LogLevel.FATAL, message, context, error);
-    
+
     if (this.exitOnError) {
       process.exit(1);
     }
   }
 
-  log(
-    level: LogLevel, 
-    message: string, 
-    context?: Record<string, unknown>, 
-    error?: Error
-  ): void {
+  log(level: LogLevel, message: string, context?: Record<string, unknown>, error?: Error): void {
     if (this.isSilent() || level < this.level) return;
 
     const entry: LogEntry = {
@@ -90,7 +85,7 @@ export abstract class BaseLogger implements TypedLogger {
           next(); // Should not happen, but safe guard
         }
       } else {
-        this.writeToTransports(entry);
+        void this.writeToTransports(entry);
       }
     };
 
@@ -98,7 +93,7 @@ export abstract class BaseLogger implements TypedLogger {
   }
 
   private async writeToTransports(entry: LogEntry): Promise<void> {
-    const promises = this.transports.map(async (transport) => {
+    const promises = this.transports.map(async transport => {
       try {
         if (transport.level === undefined || entry.level >= transport.level) {
           await transport.log(entry);
@@ -134,7 +129,7 @@ export abstract class BaseLogger implements TypedLogger {
   }
 
   async close(): Promise<void> {
-    const promises = this.transports.map(async (transport) => {
+    const promises = this.transports.map(async transport => {
       if (transport.close) {
         try {
           await transport.close();

@@ -1,4 +1,4 @@
-import { LogLevel } from "../enums/log-level.enum";
+import { LogLevel } from '../enums/log-level.enum.js';
 
 /**
  * HTTP transport configuration

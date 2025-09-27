@@ -22,17 +22,15 @@ export class FileTransport implements LogTransport {
     this.filename = config.filename;
     this.maxSize = config.maxSize ?? 10 * 1024 * 1024; // 10MB
     this.maxFiles = config.maxFiles ?? 5;
-    
-    this.formatter = config.json 
-      ? new JsonFormatter() 
-      : new SimpleFormatter();
+
+    this.formatter = config.json ? new JsonFormatter() : new SimpleFormatter();
   }
 
   async log(entry: LogEntry): Promise<void> {
     if (entry.level < this.level) return;
 
-    const formatted = this.formatter.format(entry) + '\n';
-    
+    const formatted = `${this.formatter.format(entry)}\n`;
+
     // Check if rotation is needed
     if (this.currentSize + formatted.length > this.maxSize) {
       await this.rotate();
@@ -52,7 +50,7 @@ export class FileTransport implements LogTransport {
       for (let i = this.maxFiles - 1; i >= 1; i--) {
         const oldFile = `${this.filename}.${i}`;
         const newFile = `${this.filename}.${i + 1}`;
-        
+
         try {
           await fs.access(oldFile);
           if (i === this.maxFiles - 1) {

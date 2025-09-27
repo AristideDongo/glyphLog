@@ -198,14 +198,12 @@ export const middleware = {
    */
   caller: () => {
     return (entry: any, next: () => void) => {
-      const stack = new Error().stack;
+      const { stack } = new Error();
       if (stack) {
         const lines = stack.split('\n');
         // Skip first few lines (Error, middleware, logger)
-        const callerLine = lines.find((line, index) => 
-          index > 3 && !line.includes('node_modules')
-        );
-        
+        const callerLine = lines.find((line, index) => index > 3 && !line.includes('node_modules'));
+
         if (callerLine) {
           const match = callerLine.match(/at\s+(.+)\s+\((.+):(\d+):(\d+)\)/);
           if (match) {
@@ -242,9 +240,7 @@ function sanitizeObject(obj: any, sensitiveFields: string[]): any {
 
   const sanitized: any = {};
   for (const [key, value] of Object.entries(obj)) {
-    if (sensitiveFields.some(field => 
-      key.toLowerCase().includes(field.toLowerCase())
-    )) {
+    if (sensitiveFields.some(field => key.toLowerCase().includes(field.toLowerCase()))) {
       sanitized[key] = '[REDACTED]';
     } else {
       sanitized[key] = sanitizeObject(value, sensitiveFields);
@@ -268,10 +264,10 @@ export function createLogger(name: string, env?: string): TypedLogger {
   switch (environment) {
     case 'production':
       return factory.createProductionLogger(name, './logs/app.log');
-    
+
     case 'test':
       return factory.createTestLogger(name);
-    
+
     case 'development':
     default:
       return factory.createDevelopmentLogger(name);
@@ -284,25 +280,25 @@ export function createLogger(name: string, env?: string): TypedLogger {
 export const defaultLogger = createLogger('default');
 
 /** Logs a `trace` message using the default logger. */
-export const trace = (message: string, context?: Record<string, unknown>) => 
+export const trace = (message: string, context?: Record<string, unknown>) =>
   defaultLogger.trace(message, context);
 
 /** Logs a `debug` message using the default logger. */
-export const debug = (message: string, context?: Record<string, unknown>) => 
+export const debug = (message: string, context?: Record<string, unknown>) =>
   defaultLogger.debug(message, context);
 
 /** Logs an `info` message using the default logger. */
-export const info = (message: string, context?: Record<string, unknown>) => 
+export const info = (message: string, context?: Record<string, unknown>) =>
   defaultLogger.info(message, context);
 
 /** Logs a `warn` message using the `default` logger. */
-export const warn = (message: string, context?: Record<string, unknown>) => 
+export const warn = (message: string, context?: Record<string, unknown>) =>
   defaultLogger.warn(message, context);
 
 /** Logs an `error` message using the default logger. */
-export const error = (message: string, error?: Error, context?: Record<string, unknown>) => 
+export const error = (message: string, error?: Error, context?: Record<string, unknown>) =>
   defaultLogger.error(message, error, context);
 
 /** Logs a `fatal` message using the default logger. */
-export const fatal = (message: string, error?: Error, context?: Record<string, unknown>) => 
+export const fatal = (message: string, error?: Error, context?: Record<string, unknown>) =>
   defaultLogger.fatal(message, error, context);

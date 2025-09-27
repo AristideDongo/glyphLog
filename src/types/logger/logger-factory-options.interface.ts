@@ -1,5 +1,5 @@
-import type { LogMiddleware } from "../log-middleware.type";
-import type { LoggerConfig } from "./logger-config.interface";
+import type { LogMiddleware } from '../log-middleware.type.js';
+import type { LoggerConfig } from './logger-config.interface.js';
 
 /**
  * Logger factory options

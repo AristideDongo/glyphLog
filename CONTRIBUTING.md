@@ -1,37 +1,37 @@
-# Contribuer à Logify
+# Contributing to Logify
 
-Nous sommes ravis que vous souhaitiez contribuer à Logify ! Toute aide est la bienvenue, qu'il s'agisse de rapports de bugs, de nouvelles fonctionnalités ou d'améliorations de la documentation.
+We're excited that you want to contribute to Logify! All help is welcome, whether it's bug reports, new features, or documentation improvements.
 
-## Comment Contribuer
+## How to Contribute
 
-### Rapports de Bugs
+### Bug Reports
 
-- **Vérifiez les issues existantes** : Assurez-vous que le bug n'a pas déjà été signalé.
-- **Soyez spécifique** : Décrivez le problème avec le plus de détails possible. Incluez des extraits de code, des journaux d'erreurs, la version du package et la version de Node.js.
-- **Créez une nouvelle issue** : Utilisez le modèle de rapport de bug si disponible.
+- **Check existing issues**: Make sure the bug hasn't already been reported.
+- **Be specific**: Describe the problem with as much detail as possible. Include code snippets, error logs, package version, and Node.js version.
+- **Create a new issue**: Use the bug report template if available.
 
-### Suggestions de Fonctionnalités
+### Feature Suggestions
 
-- **Ouvrez une issue** pour discuter de votre idée. Cela nous permet d'échanger sur la pertinence et l'implémentation de la fonctionnalité avant que vous n'investissiez du temps dans le développement.
+- **Open an issue** to discuss your idea. This allows us to discuss the relevance and implementation of the feature before you invest time in development.
 
-### Développement
+### Development
 
-1.  **Forkez le projet** sur GitHub.
-2.  **Clonez votre fork** en local : `git clone https://github.com/VOTRE_NOM_UTILISATEUR/logger-pack.git`
-3.  **Créez une branche** pour votre fonctionnalité : `git checkout -b feature/nom-de-la-feature`
-4.  **Installez les dépendances** : `npm install`
-5.  **Apportez vos modifications** au code.
-6.  **Assurez-vous que les tests passent** : `npm test`
-7.  **Ajoutez de nouveaux tests** pour couvrir vos modifications.
-8.  **Vérifiez le linting et le formatage** : `npm run lint` et `npm run format`.
-9.  **Commitez vos changements** avec un message clair et concis.
-10. **Pushez votre branche** : `git push origin feature/nom-de-la-feature`
-11. **Ouvrez une Pull Request** sur le dépôt original.
+1. **Fork the project** on GitHub.
+2. **Clone your fork** locally: `git clone https://github.com/AristideDongo/glyphLog.git`
+3. **Create a branch** for your feature: `git checkout -b feature/feature-name`
+4. **Install dependencies**: `npm install`
+5. **Make your changes** to the code.
+6. **Make sure tests pass**: `npm test`
+7. **Add new tests** to cover your changes.
+8. **Check linting and formatting**: `npm run lint` and `npm run format`.
+9. **Commit your changes** with a clear and concise message.
+10. **Push your branch**: `git push origin feature/feature-name`
+11. **Open a Pull Request** on the original repository.
 
-## Normes de Code
+## Code Standards
 
-- Nous suivons les règles ESLint et Prettier configurées dans le projet.
-- Le code doit être écrit en TypeScript.
-- Ajoutez des commentaires JSDoc pour toutes les nouvelles fonctions, classes et méthodes exportées.
+- We follow the ESLint and Prettier rules configured in the project.
+- Code must be written in TypeScript.
+- Add JSDoc comments for all new exported functions, classes, and methods.
 
-Merci de contribuer à rendre Logify encore meilleur !
+Thank you for contributing to make Logify even better!

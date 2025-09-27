@@ -1,3 +1,4 @@
+/* globals NodeJS */
 import { LogLevel } from '../types/enums/log-level.enum.js';
 import { LogTransport } from '../types/transports/log-transport.interface.js';
 import { HttpTransportConfig } from '../types/transports/http-transport.config.js';
@@ -32,14 +33,14 @@ export class HttpTransport implements LogTransport {
     this.buffer.push(entry);
 
     if (this.buffer.length >= this.batchSize) {
-      this.flush();
+      void this.flush();
     }
   }
 
   private startTimer(): void {
     this.timer = setInterval(() => {
       if (this.buffer.length > 0) {
-        this.flush();
+        void this.flush();
       }
     }, this.flushInterval);
   }
@@ -53,11 +54,13 @@ export class HttpTransport implements LogTransport {
       level: LogLevel[entry.level],
       message: entry.message,
       context: entry.context,
-      error: entry.error ? {
-        name: entry.error.name,
-        message: entry.error.message,
-        stack: entry.error.stack,
-      } : undefined,
+      error: entry.error
+        ? {
+            name: entry.error.name,
+            message: entry.error.message,
+            stack: entry.error.stack,
+          }
+        : undefined,
       meta: entry.meta,
     }));
 
@@ -84,7 +87,7 @@ export class HttpTransport implements LogTransport {
     if (this.timer) {
       clearInterval(this.timer);
     }
-    
+
     // Flush remaining entries
     await this.flush();
   }

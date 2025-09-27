@@ -1,5 +1,5 @@
-import type { LogLevel } from "./enums/log-level.enum";
-import type { LogMeta } from "./log-meta.interface";
+import type { LogLevel } from './enums/log-level.enum.js';
+import type { LogMeta } from './log-meta.interface.js';
 
 /**
  * Base log entry structure
@@ -10,5 +10,5 @@ export interface LogEntry {
   timestamp: Date;
   context?: Record<string, unknown>;
   error?: Error;
-  meta?: LogMeta
+  meta?: LogMeta;
 }

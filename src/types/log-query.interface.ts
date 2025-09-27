@@ -1,5 +1,5 @@
-import type { LogLevel } from "./enums/log-level.enum";
-import type { LogContext } from "./log-context.type";
+import type { LogLevel } from './enums/log-level.enum.js';
+import type { LogContext } from './log-context.type.js';
 
 /**
  * Log query interface for searching logs

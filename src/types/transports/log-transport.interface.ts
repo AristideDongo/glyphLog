@@ -1,5 +1,5 @@
-import { LogLevel } from "../enums/log-level.enum";
-import type { LogEntry } from "../log-entry.interface";
+import { LogLevel } from '../enums/log-level.enum.js';
+import type { LogEntry } from '../log-entry.interface.js';
 
 /**
  * Log transport interface for outputting logs

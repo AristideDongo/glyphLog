@@ -14,7 +14,7 @@ export class ConsoleTransport implements LogTransport {
 
   constructor(config: ConsoleTransportConfig = {}) {
     this.level = config.level ?? LogLevel.INFO;
-    
+
     if (config.json) {
       this.formatter = new JsonFormatter();
     } else {
@@ -29,7 +29,7 @@ export class ConsoleTransport implements LogTransport {
     if (entry.level < this.level) return;
 
     const formatted = this.formatter.format(entry);
-    
+
     if (entry.level >= LogLevel.ERROR) {
       console.error(formatted);
     } else {

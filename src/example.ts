@@ -1,16 +1,16 @@
-import { createLogger, LoggerFactory, middleware } from "./factory.js";
-import { Logger } from "./loggers/index.js";
-import { ConsoleTransport, MemoryTransport } from "./transports/index.js";
-import { LogLevel } from "./types/enums/log-level.enum.js";
+import { LoggerFactory, createLogger, middleware } from './factory.js';
+import { Logger } from './loggers/index.js';
+import { ConsoleTransport, MemoryTransport } from './transports/index.js';
+import { LogLevel } from './types/enums/log-level.enum.js';
 
 /**
  * Basic usage example
  */
 function basicUsage() {
   console.log('\n=== Basic Usage ===');
-  
+
   const logger = createLogger('app');
-  
+
   logger.trace('This is a trace message');
   logger.debug('This is a debug message', { userId: '123' });
   logger.info('Application started', { version: '1.0.0', port: 3000 });
@@ -23,7 +23,7 @@ function basicUsage() {
  */
 function advancedConfiguration() {
   console.log('\n=== Advanced Configuration ===');
-  
+
   const logger = new Logger({
     level: LogLevel.DEBUG,
     transports: [
@@ -44,12 +44,12 @@ function advancedConfiguration() {
     },
   });
 
-  logger.info('User logged in', { 
+  logger.info('User logged in', {
     userId: 'user-123',
     ip: '192.168.1.1',
-    userAgent: 'Mozilla/5.0...'
+    userAgent: 'Mozilla/5.0...',
   });
-  
+
   logger.error('Database connection failed', new Error('Connection timeout'), {
     database: 'users',
     host: 'localhost:5432',
@@ -61,7 +61,7 @@ function advancedConfiguration() {
  */
 function childLoggerExample() {
   console.log('\n=== Child Logger ===');
-  
+
   const mainLogger = createLogger('main');
   const requestLogger = mainLogger.child({
     requestId: 'req-456',
@@ -79,7 +79,7 @@ function childLoggerExample() {
  */
 function middlewareExample() {
   console.log('\n=== Middleware ===');
-  
+
   const logger = new Logger({
     level: LogLevel.DEBUG,
     transports: [new ConsoleTransport({ colors: true })],
@@ -87,10 +87,10 @@ function middlewareExample() {
 
   // Add request ID middleware
   logger.use(middleware.requestId(() => `req-${Date.now()}`));
-  
+
   // Add sanitization middleware
   logger.use(middleware.sanitize(['password', 'secret', 'token']));
-  
+
   // Add caller information
   logger.use(middleware.caller());
 
@@ -107,7 +107,7 @@ function middlewareExample() {
  */
 function performanceExample() {
   console.log('\n=== Performance Logging ===');
-  
+
   // const logger = createLogger('performance');
 
   // // Timer example
@@ -128,7 +128,7 @@ function performanceExample() {
  */
 function factoryExample() {
   console.log('\n=== Factory Pattern ===');
-  
+
   const factory = LoggerFactory.getInstance({
     defaultConfig: {
       level: LogLevel.INFO,
@@ -155,7 +155,7 @@ function factoryExample() {
  */
 async function transportExample() {
   console.log('\n=== Different Transports ===');
-  
+
   const logger = new Logger({
     level: LogLevel.DEBUG,
     transports: [
@@ -164,7 +164,7 @@ async function transportExample() {
         level: LogLevel.INFO,
         colors: true,
       }),
-      
+
       // File transport (commented out for demo)
       // new FileTransport({
       //   level: LogLevel.DEBUG,
@@ -173,7 +173,7 @@ async function transportExample() {
       //   maxSize: 10 * 1024 * 1024,
       //   maxFiles: 5,
       // }),
-      
+
       // Memory transport for testing
       new MemoryTransport({
         level: LogLevel.TRACE,
@@ -189,7 +189,7 @@ async function transportExample() {
 
   // Get memory transport to show stored logs
   const memoryTransport = logger.getTransports().find(t => t.name === 'memory') as any;
-  if (memoryTransport && memoryTransport.getLogs) {
+  if (memoryTransport?.getLogs) {
     console.log(`\nMemory transport has ${memoryTransport.getLogs().length} logs stored`);
   }
 }
@@ -199,7 +199,7 @@ async function transportExample() {
  */
 function errorHandlingExample() {
   console.log('\n=== Error Handling ===');
-  
+
   const logger = createLogger('error-handler');
 
   try {

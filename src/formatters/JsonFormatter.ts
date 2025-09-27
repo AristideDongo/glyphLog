@@ -12,12 +12,12 @@ export class JsonFormatter implements LogFormatter {
       level: LogLevel[entry.level],
       message: entry.message,
       ...(entry.context && { context: entry.context }),
-      ...(entry.error && { 
+      ...(entry.error && {
         error: {
           name: entry.error.name,
           message: entry.error.message,
           stack: entry.error.stack,
-        }
+        },
       }),
       ...(entry.meta && { meta: entry.meta }),
     };

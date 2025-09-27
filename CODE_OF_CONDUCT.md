@@ -1,43 +1,124 @@
-# Code de Conduite - Logify
 
-## Notre Engagement
+# Contributor Covenant 3.0 Code of Conduct
 
-Dans l'intérêt de favoriser un environnement ouvert et accueillant, nous nous engageons, en tant que contributeurs et mainteneurs, à faire de la participation à notre projet et à notre communauté une expérience sans harcèlement pour tout le monde, quel que soit l'âge, la taille, le handicap, l'ethnie, les caractéristiques sexuelles, l'identité et l'expression de genre, le niveau d'expérience, l'éducation, le statut socio-économique, la nationalité, l'apparence personnelle, la race, la religion ou l'identité et l'orientation sexuelle.
+## Our Pledge
 
-## Nos Standards
+We pledge to make our community welcoming, safe, and equitable for all.
 
-Exemples de comportements qui contribuent à créer un environnement positif :
+We are committed to fostering an environment that respects and promotes the dignity, rights, and contributions of all individuals, regardless of characteristics including race, ethnicity, caste, color, age, physical characteristics, neurodiversity, disability, sex or gender, gender identity or expression, sexual orientation, language, philosophy or religion, national or social origin, socio-economic position, level of education, or other status. The same privileges of participation are extended to everyone who participates in good faith and in accordance with this Covenant.
 
-*   Utiliser un langage accueillant et inclusif
-*   Être respectueux des différents points de vue et expériences
-*   Accepter gracieusement les critiques constructives
-*   Se concentrer sur ce qui est le mieux pour la communauté
-*   Faire preuve d'empathie envers les autres membres de la communauté
+## Encouraged Behaviors
 
-Exemples de comportements inacceptables de la part des participants :
+While acknowledging differences in social norms, we all strive to meet our community's expectations for positive behavior. We also understand that our words and actions may be interpreted differently than we intend based on culture, background, or native language.
 
-*   L'utilisation d'un langage ou d'images sexualisés et l'attention ou les avances sexuelles importunes
-*   Le trolling, les commentaires insultants/désobligeants et les attaques personnelles ou politiques
-*   Le harcèlement public ou privé
-*   La publication d'informations privées d'autrui, telles qu'une adresse physique ou électronique, sans autorisation explicite
-*   Toute autre conduite qui pourrait raisonnablement être considérée comme inappropriée dans un cadre professionnel
+With these considerations in mind, we agree to behave mindfully toward each other and act in ways that center our shared values, including:
 
-## Nos Responsabilités
+1. Respecting the **purpose of our community**, our activities, and our ways of gathering.
+2. Engaging **kindly and honestly** with others.
+3. Respecting **different viewpoints** and experiences.
+4. **Taking responsibility** for our actions and contributions.
+5. Gracefully giving and accepting **constructive feedback**.
+6. Committing to **repairing harm** when it occurs.
+7. Behaving in other ways that promote and sustain the **well-being of our community**.
 
-Les mainteneurs du projet sont responsables de clarifier les normes de comportement acceptable et sont censés prendre des mesures correctives appropriées et équitables en réponse à tout cas de comportement inacceptable.
 
-Les mainteneurs du projet ont le droit et la responsabilité de supprimer, de modifier ou de rejeter les commentaires, les commits, le code, les modifications du wiki, les issues et autres contributions qui ne sont pas conformes à ce Code de Conduite, ou de bannir temporairement ou définitivement tout contributeur pour d'autres comportements qu'ils jugent inappropriés, menaçants, offensants ou nuisibles.
+## Restricted Behaviors
 
-## Portée
+We agree to restrict the following behaviors in our community. Instances, threats, and promotion of these behaviors are violations of this Code of Conduct.
 
-Ce Code de Conduite s'applique à la fois dans les espaces du projet et dans les espaces publics lorsqu'un individu représente le projet ou sa communauté. Les exemples de représentation d'un projet ou d'une communauté incluent l'utilisation d'une adresse e-mail officielle du projet, la publication via un compte de médias sociaux officiel ou le fait d'agir en tant que représentant désigné lors d'un événement en ligne ou hors ligne. La représentation du projet peut être définie et clarifiée plus en détail par les mainteneurs du projet.
+1. **Harassment.** Violating explicitly expressed boundaries or engaging in unnecessary personal attention after any clear request to stop.
+2. **Character attacks.** Making insulting, demeaning, or pejorative comments directed at a community member or group of people.
+3. **Stereotyping or discrimination.** Characterizing anyone’s personality or behavior on the basis of immutable identities or traits.
+4. **Sexualization.** Behaving in a way that would generally be considered inappropriately intimate in the context or purpose of the community.
+5. **Violating confidentiality**. Sharing or acting on someone's personal or private information without their permission.
+6. **Endangerment.** Causing, encouraging, or threatening violence or other harm toward any person or group.
+7. Behaving in other ways that **threaten the well-being** of our community.
 
-## Application
+### Other Restrictions
 
-Les cas de comportement abusif, harcelant ou autrement inacceptable peuvent être signalés en contactant l'équipe du projet à [dongokouamearistide95@gmail.com]. Toutes les plaintes seront examinées et feront l'objet d'une enquête et donneront lieu à une réponse jugée nécessaire et appropriée aux circonstances. L'équipe du projet est tenue de maintenir la confidentialité à l'égard du rapporteur d'un incident. De plus amples détails sur les politiques d'application spécifiques peuvent être publiés séparément.
+1. **Misleading identity.** Impersonating someone else for any reason, or pretending to be someone else to evade enforcement actions.
+2. **Failing to credit sources.** Not properly crediting the sources of content you contribute.
+3. **Promotional materials**. Sharing marketing or other commercial content in a way that is outside the norms of the community.
+4. **Irresponsible communication.** Failing to responsibly present content which includes, links or describes any other restricted behaviors.
 
-Les mainteneurs du projet qui ne suivent pas ou n'appliquent pas le Code de Conduite en toute bonne foi peuvent faire face à des répercussions temporaires ou permanentes telles que déterminées par d'autres membres de la direction du projet.
+
+## Reporting an Issue
+
+Tensions can occur between community members even when they are trying their best to collaborate. Not every conflict represents a code of conduct violation, and this Code of Conduct reinforces encouraged behaviors and norms that can help avoid conflicts and minimize harm.
+
+When an incident does occur, it is important to report it promptly. To report a possible violation, **Reporting Instructions
+
+Cases of abusive, harassing, or otherwise unacceptable behavior can be reported by contacting the project team via email at the following address:
+
+[dongokouamearistide95@gmail.com]
+
+All complaints will be reviewed and investigated, resulting in a response deemed necessary and appropriate to the circumstances. The project team is required to maintain confidentiality regarding the person reporting an incident.**
+
+Community Moderators take reports of violations seriously and will make every effort to respond in a timely manner. They will investigate all reports of code of conduct violations, reviewing messages, logs, and recordings, or interviewing witnesses and other participants. Community Moderators will keep investigation and enforcement actions as transparent as possible while prioritizing safety and confidentiality. In order to honor these values, enforcement actions are carried out in private with the involved parties, but communicating to the whole community may be part of a mutually agreed upon resolution.
+
+
+## Addressing and Repairing Harm
+
+**Corrective Measures
+
+The following is a proposed wording for Remedies and Repairs, based on best practices, which you can adapt for your own enforcement policies:
+
+1. Clarification
+
+Project Maintainers have the right and responsibility to clarify the standard of acceptable behaviour and are expected to take appropriate and fair corrective action in response to any instance of unacceptable behaviour.
+
+2. Investigation Procedure
+
+All complaints will be reviewed and investigated by the project team. Maintainers will strive to impartially understand the situation by listening to all parties involved before reaching a decision.
+
+3. Enforcement and Consequences
+
+Project Maintainers will enforce the following consequences for contributors found to be in violation of the Code of Conduct, which may include, but are not limited to:
+
+    Warning and Explanation: A private, written warning from the Project Maintainers, clarifying the nature of the violation and explaining why the behaviour was inappropriate. A request for immediate cessation of that behaviour.
+
+    Content Removal: The removal, editing, or rejection of comments, commits, code, wiki edits, issues, and other contributions that do not conform to the Code of Conduct.
+
+    Temporary Ban: A temporary prohibition from any participation in the project and its spaces (including, but not limited to, the mailing list, code repositories, and meetings). The duration will be determined by the Project Maintainers.
+
+    Permanent Ban: Permanent expulsion from any future interaction in the project.
+
+4. Right of Appeal
+
+Any decision made by the Maintainers regarding the application of measures may be appealed to the Logify Project Leadership Team, by providing a written justification within a reasonable timeframe following notification of the decision.**
+
+If an investigation by the Community Moderators finds that this Code of Conduct has been violated, the following enforcement ladder may be used to determine how best to repair harm, based on the incident's impact on the individuals involved and the community as a whole. Depending on the severity of a violation, lower rungs on the ladder may be skipped.
+
+1) Warning
+   1) Event: A violation involving a single incident or series of incidents.
+   2) Consequence: A private, written warning from the Community Moderators.
+   3) Repair: Examples of repair include a private written apology, acknowledgement of responsibility, and seeking clarification on expectations.
+2) Temporarily Limited Activities
+   1) Event: A repeated incidence of a violation that previously resulted in a warning, or the first incidence of a more serious violation.
+   2) Consequence: A private, written warning with a time-limited cooldown period designed to underscore the seriousness of the situation and give the community members involved time to process the incident. The cooldown period may be limited to particular communication channels or interactions with particular community members.
+   3) Repair: Examples of repair may include making an apology, using the cooldown period to reflect on actions and impact, and being thoughtful about re-entering community spaces after the period is over.
+3) Temporary Suspension
+   1) Event: A pattern of repeated violation which the Community Moderators have tried to address with warnings, or a single serious violation.
+   2) Consequence: A private written warning with conditions for return from suspension. In general, temporary suspensions give the person being suspended time to reflect upon their behavior and possible corrective actions.
+   3) Repair: Examples of repair include respecting the spirit of the suspension, meeting the specified conditions for return, and being thoughtful about how to reintegrate with the community when the suspension is lifted.
+4) Permanent Ban
+   1) Event: A pattern of repeated code of conduct violations that other steps on the ladder have failed to resolve, or a violation so serious that the Community Moderators determine there is no way to keep the community safe with this person as a member.
+   2) Consequence: Access to all community spaces, tools, and communication channels is removed. In general, permanent bans should be rarely used, should have strong reasoning behind them, and should only be resorted to if working through other remedies has failed to change the behavior.
+   3) Repair: There is no possible repair in cases of this severity.
+
+This enforcement ladder is intended as a guideline. It does not limit the ability of Community Managers to use their discretion and judgment, in keeping with the best interests of our community.
+
+
+## Scope
+
+This Code of Conduct applies within all community spaces, and also applies when an individual is officially representing the community in public or other spaces. Examples of representing our community include using an official email address, posting via an official social media account, or acting as an appointed representative at an online or offline event.
+
 
 ## Attribution
 
-Ce Code de Conduite est adapté du [Contributor Covenant](https://www.contributor-covenant.org), version 2.0, disponible sur [https://www.contributor-covenant.org/version/2/0/code_of_conduct.html](https://www.contributor-covenant.org/version/2/0/code_of_conduct.html).
+This Code of Conduct is adapted from the Contributor Covenant, version 3.0, permanently available at [https://www.contributor-covenant.org/version/3/0/](https://www.contributor-covenant.org/version/3/0/).
+
+Contributor Covenant is stewarded by the Organization for Ethical Source and licensed under CC BY-SA 4.0. To view a copy of this license, visit [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/)
+
+For answers to common questions about Contributor Covenant, see the FAQ at [https://www.contributor-covenant.org/faq](https://www.contributor-covenant.org/faq). Translations are provided at [https://www.contributor-covenant.org/translations](https://www.contributor-covenant.org/translations). Additional enforcement and community guideline resources can be found at [https://www.contributor-covenant.org/resources](https://www.contributor-covenant.org/resources). The enforcement ladder was inspired by the work of [Mozilla’s code of conduct team](https://github.com/mozilla/inclusion).
+

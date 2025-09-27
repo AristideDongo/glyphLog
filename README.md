@@ -1,36 +1,36 @@
 # 🚀 TypeScript Typed Logger
 
-[![npm version](https://badge.fury.io/js/logify.svg)](https://badge.fury.io/js/logify)
+[![npm version](https://badge.fury.io/js/glyphlog.svg)](https://badge.fury.io/js/glyphlog)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/AristideDongo/logger-pack/workflows/CI/badge.svg)](https://github.com/AristideDongo/logger-pack/actions)
-[![Coverage Status](https://img.shields.io/coveralls/github/AristideDongo/logger-pack.svg?branch=main)](https://coveralls.io/github/AristideDongo/logger-pack?branch=main)
-[![npm bundle size](https://img.shields.io/bundlephobia/minzip/logify)](https://bundlephobia.com/package/logify)
-[![npm downloads](https://img.shields.io/npm/dm/logify)](https://www.npmjs.com/package/logify)
+[![Build Status](https://github.com/AristideDongo/glyphLog/workflows/CI/badge.svg)](https://github.com/AristideDongo/glyphLog/actions)
+[![Coverage Status](https://img.shields.io/coveralls/github/AristideDongo/glyphLog.svg?branch=main)](https://coveralls.io/github/AristideDongo/glyphLog?branch=main)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/glyphlog)](https://bundlephobia.com/package/glyphlog)
+[![npm downloads](https://img.shields.io/npm/dm/glyphlog)](https://www.npmjs.com/package/glyphlog)
 
-Une bibliothèque de logging moderne, entièrement typée et configurable pour TypeScript/JavaScript avec support des transports multiples, middleware, et logging structuré.
+A modern, fully typed and configurable logging library for TypeScript/JavaScript with support for multiple transports, middleware, and structured logging.
 
-### 🤔 Pourquoi choisir Logify ?
+### 🤔 Why choose glyphLog?
 
-Dans un écosystème avec des loggers matures comme Winston ou Pino, Logify se distingue par :
+In an ecosystem with mature loggers like Winston or Pino, glyphLog stands out by:
 
--   **Une expérience TypeScript native :** Contrairement à d'autres, Logify est écrit dès le départ en TypeScript pour les développeurs TypeScript. Profitez d'une auto-complétion parfaite, de types stricts et d'une configuration entièrement typée sans effort.
--   **Simplicité et Modernité :** Une API intuitive et moderne qui ne nécessite pas une configuration complexe pour démarrer. Les `factories` et la configuration par environnement sont intégrées pour suivre les meilleures pratiques actuelles.
--   **Performance out-of-the-box :** Des outils de profiling (`time`, `profile`) sont inclus nativement pour vous aider à mesurer et optimiser les performances de votre code sans ajouter de dépendances.
--   **Extensibilité pensée pour les tests :** Le `MemoryTransport` intégré et une architecture claire facilitent grandement les tests de vos logs.
+-   **Native TypeScript experience:** Unlike others, glyphLog is written from the ground up in TypeScript for TypeScript developers. Enjoy perfect auto-completion, strict types, and fully typed configuration effortlessly.
+-   **Simplicity and Modernity:** An intuitive and modern API that doesn't require complex configuration to get started. `Factories` and environment-based configuration are built-in to follow current best practices.
+-   **Performance out-of-the-box:** Profiling tools (`time`, `profile`) are included natively to help you measure and optimize your code's performance without adding dependencies.
+-   **Extensibility designed for testing:** The built-in `MemoryTransport` and clear architecture greatly facilitate testing your logs.
 
-## ✨ Fonctionnalités
+## ✨ Features
 
-- **🔒 Entièrement typé** - Support complet TypeScript avec types stricts
-- **📦 Transports multiples** - Console, File, HTTP, Memory et plus
-- **🎨 Formatters personnalisables** - JSON, Console coloré, Simple, Dev
-- **⚡ Performance** - Mesures de temps et profiling intégrés
-- **🔧 Middleware** - Pipeline de traitement extensible
-- **👶 Child loggers** - Contexte hiérarchique et métadonnées
-- **🎯 Filtrage par niveau** - TRACE, DEBUG, INFO, WARN, ERROR, FATAL
-- **🌐 Universal** - Fonctionne en Node.js et navigateurs
-- **📊 Logging structuré** - Support complet des métadonnées et contexte
-- **🧪 Testable** - Transport mémoire et outils de test intégrés
+- **🔒 Fully typed** - Complete TypeScript support with strict types
+- **📦 Multiple transports** - Console, File, HTTP, Memory and more
+- **🎨 Customizable formatters** - JSON, Colored Console, Simple, Dev
+- **⚡ Performance** - Built-in timing and profiling measurements
+- **🔧 Middleware** - Extensible processing pipeline
+- **👶 Child loggers** - Hierarchical context and metadata
+- **🎯 Level filtering** - TRACE, DEBUG, INFO, WARN, ERROR, FATAL
+- **🌐 Universal** - Works in Node.js and browsers
+- **📊 Structured logging** - Full metadata and context support
+- **🧪 Testable** - Memory transport and built-in testing tools
 
 ## 📦 Installation
 
@@ -46,7 +46,7 @@ yarn add logify
 pnpm add logify
 ```
 
-## 🚀 Utilisation rapide
+## 🚀 Quick usage
 
 ```typescript
 import { createLogger } from 'logify';
@@ -58,11 +58,11 @@ logger.warn('This is a warning', { userId: '123' });
 logger.error('Something went wrong', new Error('Database connection failed'));
 ```
 
-## 📚 Documentation détaillée
+## 📚 Detailed documentation
 
-Pour un guide complet de l'API et des options de configuration, veuillez consulter notre [site de documentation complet](https://aristidedongo.github.io/logger-pack/).
+For a complete API guide and configuration options, please visit our [complete documentation site](https://aristidedongo.github.io/logger-pack/).
 
-### Configuration de base
+### Basic configuration
 
 ```typescript
 import { Logger, LogLevel, ConsoleTransport } from 'logify';
@@ -82,7 +82,7 @@ const logger = new Logger({
 });
 ```
 
-### Niveaux de log
+### Log levels
 
 ```typescript
 logger.trace('Trace message');         // LogLevel.TRACE (0)
@@ -115,7 +115,7 @@ const transport = new ConsoleTransport({
   level: LogLevel.INFO,
   colors: true,
   timestamp: true,
-  json: false, // true pour format JSON
+  json: false, // true for JSON format
 });
 ```
 
@@ -147,7 +147,7 @@ const transport = new HttpTransport({
 });
 ```
 
-#### Memory Transport (pour les tests)
+#### Memory Transport (for testing)
 ```typescript
 import { MemoryTransport } from 'logify';
 
@@ -156,7 +156,7 @@ const transport = new MemoryTransport({
   maxSize: 1000,
 });
 
-// Récupérer les logs stockés
+// Retrieve stored logs
 const logs = transport.getLogs();
 transport.clear();
 ```
@@ -168,7 +168,7 @@ transport.clear();
 import { JsonFormatter } from 'logify';
 
 const formatter = new JsonFormatter();
-// Sortie: {"timestamp":"2023-01-01T00:00:00.000Z","level":"INFO","message":"Hello"}
+// Output: {"timestamp":"2023-01-01T00:00:00.000Z","level":"INFO","message":"Hello"}
 ```
 
 #### Console Formatter
@@ -179,7 +179,7 @@ const formatter = new ConsoleFormatter({
   colors: true,
   timestamp: true,
 });
-// Sortie: 2023-01-01 00:00:00.000 [INFO ] Hello {userId="123"}
+// Output: 2023-01-01 00:00:00.000 [INFO ] Hello {userId="123"}
 ```
 
 #### Dev Formatter
@@ -187,7 +187,7 @@ const formatter = new ConsoleFormatter({
 import { DevFormatter } from 'logify';
 
 const formatter = new DevFormatter();
-// Sortie avec icônes et indentation pour le développement
+// Output with icons and indentation for development
 ```
 
 ### Middleware
@@ -195,36 +195,36 @@ const formatter = new DevFormatter();
 ```typescript
 import { middleware } from 'logify';
 
-// Middleware de Request ID
+// Request ID middleware
 logger.use(middleware.requestId(() => generateRequestId()));
 
-// Middleware de sanitisation
+// Sanitization middleware
 logger.use(middleware.sanitize(['password', 'secret', 'token']));
 
-// Middleware d'informations sur l'appelant
+// Caller information middleware
 logger.use(middleware.caller());
 
-// Middleware personnalisé
+// Custom middleware
 logger.use((entry, next) => {
   entry.meta = { ...entry.meta, customField: 'value' };
   next();
 });
 ```
 
-### Logging de performance
+### Performance logging
 
 ```typescript
-// Mesure de temps simple
+// Simple timing
 logger.time('database-query');
 await performDatabaseQuery();
 logger.timeEnd('database-query');
-// Sortie: database-query: 150ms
+// Output: database-query: 150ms
 
-// Profiling détaillé
+// Detailed profiling
 logger.profile('user-processing');
 await processUser();
 logger.profileEnd('user-processing');
-// Sortie: Profile completed: user-processing avec métadonnées détaillées
+// Output: Profile completed: user-processing with detailed metadata
 ```
 
 ### Factory Pattern
@@ -244,13 +244,13 @@ const factory = LoggerFactory.getInstance({
 const userLogger = factory.get('user-service');
 const orderLogger = factory.get('order-service');
 
-// Loggers préconfigurés
+// Pre-configured loggers
 const devLogger = factory.createDevelopmentLogger('dev');
 const prodLogger = factory.createProductionLogger('prod', './logs/prod.log');
 const testLogger = factory.createTestLogger('test');
 ```
 
-### Gestion des erreurs
+### Error handling
 
 ```typescript
 try {
@@ -264,27 +264,27 @@ try {
 }
 ```
 
-### Configuration par environnement
+### Environment-based configuration
 
 ```typescript
 import { createLogger } from 'logify';
 
-// Automatiquement configuré selon NODE_ENV
+// Automatically configured based on NODE_ENV
 const logger = createLogger('app');
 
-// Ou explicitement
+// Or explicitly
 const logger = createLogger('app', 'production');
 ```
 
-## 📖 Exemples avancés (Recettes)
+## 📖 Advanced examples (Recipes)
 
-Découvrez des cas d'utilisation concrets et des intégrations dans le [répertoire d'exemples](https-github-com-aristidedongo-logger-pack-tree-main-examples) :
+Discover concrete use cases and integrations in the [examples repository](https://github.com/AristideDongo/logger-pack/tree/main/examples):
 
--   **Intégration avec Express.js :** Un middleware pour logger automatiquement toutes les requêtes HTTP.
--   **Alerting sur les erreurs critiques :** Comment utiliser `HttpTransport` pour envoyer des erreurs vers un service externe comme Sentry ou Slack.
--   **Rotation de logs avancée :** Configuration détaillée du `FileTransport` pour la gestion des logs en production.
+-   **Express.js integration:** Middleware to automatically log all HTTP requests.
+-   **Critical error alerting:** How to use `HttpTransport` to send errors to external services like Sentry or Slack.
+-   **Advanced log rotation:** Detailed `FileTransport` configuration for production log management.
 
-## 🧪 Tests
+## 🧪 Testing
 
 ```typescript
 import { MemoryTransport } from 'logify';
@@ -301,10 +301,10 @@ expect(logs).toHaveLength(1);
 expect(logs[0].message).toBe('Test message');
 ```
 
-## 📊 Métriques et monitoring
+## 📊 Metrics and monitoring
 
 ```typescript
-// Statistiques du logger
+// Logger statistics
 const stats = logger.getStats();
 console.log(stats);
 // {
@@ -314,13 +314,13 @@ console.log(stats);
 //   activeProfiles: ['profile-1']
 // }
 
-// Fermeture propre
+// Clean shutdown
 await logger.close();
 ```
 
-## 🔧 Configuration avancée
+## 🔧 Advanced configuration
 
-### Logger personnalisé avec tous les transports
+### Custom logger with all transports
 
 ```typescript
 import {
@@ -370,9 +370,9 @@ logger.use(middleware.timestamp());
 logger.use(middleware.caller());
 ```
 
-## 📝 Scripts de développement
+## 📝 Development scripts
 
-Le package inclut tous les scripts nécessaires pour le développement :
+The package includes all necessary scripts for development:
 
 ```json
 {
@@ -390,7 +390,7 @@ Le package inclut tous les scripts nécessaires pour le développement :
 }
 ```
 
-## 🌍 Types exportés
+## 🌍 Exported types
 
 ```typescript
 import type {
@@ -406,20 +406,20 @@ import type {
 } from 'logify';
 ```
 
-## 🤝 Contribution
+## 🤝 Contributing
 
-Les contributions sont les bienvenues ! Veuillez consulter le fichier [CONTRIBUTING.md](CONTRIBUTING.md) pour savoir comment participer.
+Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file to learn how to participate.
 
-## 📄 Licence
+## 📄 License
 
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-## 🙏 Remerciements
+## 🙏 Acknowledgments
 
-- Inspiré par Winston, Pino, et d'autres excellentes librairies de logging
-- Construit avec TypeScript pour une expérience de développement optimale
-- Utilise des outils modernes comme Rollup, Vitest, et ESLint
+- Inspired by Winston, Pino, and other excellent logging libraries
+- Built with TypeScript for an optimal development experience
+- Uses modern tools like Rollup, Vitest, and ESLint
 
 ---
 
-**Fait avec ❤️ pour la communauté TypeScript**
+**Made with ❤️ for the TypeScript community**

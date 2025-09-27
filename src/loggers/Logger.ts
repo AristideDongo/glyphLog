@@ -1,9 +1,9 @@
-import { BaseLogger } from "./BaseLogger.js";
-import { LogLevel } from "../types/enums/log-level.enum.js";
-import { LogMeta } from "../types/log-meta.interface.js";
-import { LoggerConfig } from "../types/logger/logger-config.interface.js";
-import { PerformanceLogger } from "../types/logger/performance-logger.interface.js";
-import { TypedLogger } from "../types/logger/typed-logger.interface.js";
+import { BaseLogger } from './BaseLogger.js';
+import { LogLevel } from '../types/enums/log-level.enum.js';
+import { LogMeta } from '../types/log-meta.interface.js';
+import { LoggerConfig } from '../types/logger/logger-config.interface.js';
+import { PerformanceLogger } from '../types/logger/performance-logger.interface.js';
+import { TypedLogger } from '../types/logger/typed-logger.interface.js';
 
 /**
  * Main Logger class that extends BaseLogger with performance monitoring,
@@ -30,7 +30,7 @@ export class Logger extends BaseLogger implements PerformanceLogger {
       exitOnError: this.exitOnError,
       silent: this.isSilent(),
     };
-    
+
     const childLogger = new Logger(childConfig);
     childLogger['middleware'] = [...this.middleware];
 
@@ -58,7 +58,7 @@ export class Logger extends BaseLogger implements PerformanceLogger {
 
     const duration = Date.now() - startTime;
     this.timers.delete(label);
-    
+
     this.info(`${label}: ${duration}ms`, { performance: { label, duration } });
   }
 
@@ -84,14 +84,14 @@ export class Logger extends BaseLogger implements PerformanceLogger {
 
     const duration = Date.now() - startTime;
     this.profiles.delete(label);
-    
-    this.info(`Profile completed: ${label}`, { 
-      profile: { 
-        label, 
-        duration, 
+
+    this.info(`Profile completed: ${label}`, {
+      profile: {
+        label,
+        duration,
         startTime: new Date(startTime).toISOString(),
-        endTime: new Date().toISOString()
-      } 
+        endTime: new Date().toISOString(),
+      },
     });
   }
 
