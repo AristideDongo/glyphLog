@@ -6,19 +6,25 @@ import { LoggerFactoryOptions } from './types/logger/logger-factory-options.inte
 import { TypedLogger } from './types/logger/typed-logger.interface';
 
 /**
- * Logger factory for creating pre-configured loggers
+ * Manages the creation and lifecycle of logger instances.
+ * This class follows a singleton pattern to ensure a single point of configuration.
  */
 export class LoggerFactory {
   private static instance?: LoggerFactory;
   private defaultConfig: Partial<LoggerConfig>;
   private loggers = new Map<string, TypedLogger>();
 
+  /**
+   * @param options - Configuration options for the factory.
+   */
   constructor(options: LoggerFactoryOptions = {}) {
     this.defaultConfig = options.defaultConfig ?? {};
   }
 
   /**
-   * Get singleton instance
+   * Retrieves the singleton instance of the LoggerFactory.
+   * @param options - Initial configuration if the instance is created for the first time.
+   * @returns The singleton LoggerFactory instance.
    */
   static getInstance(options?: LoggerFactoryOptions): LoggerFactory {
     if (!LoggerFactory.instance) {
@@ -28,7 +34,10 @@ export class LoggerFactory {
   }
 
   /**
-   * Create a new logger instance
+   * Creates a new logger instance and registers it with the factory.
+   * @param name - The name for the new logger.
+   * @param config - Logger-specific configuration to merge with the default.
+   * @returns The newly created logger instance.
    */
   create(name: string, config?: Partial<LoggerConfig>): TypedLogger {
     const mergedConfig: LoggerConfig = {
@@ -47,7 +56,10 @@ export class LoggerFactory {
   }
 
   /**
-   * Get an existing logger or create a new one
+   * Retrieves an existing logger by name or creates a new one if it doesn't exist.
+   * @param name - The name of the logger to retrieve or create.
+   * @param config - Configuration to use if a new logger is created.
+   * @returns An existing or new logger instance.
    */
   get(name: string, config?: Partial<LoggerConfig>): TypedLogger {
     let logger = this.loggers.get(name);
@@ -58,7 +70,10 @@ export class LoggerFactory {
   }
 
   /**
-   * Create a logger for development
+   * Creates a pre-configured logger optimized for development environments.
+   * (e.g., colorful console output, debug level).
+   * @param name - The name for the development logger.
+   * @returns A logger instance configured for development.
    */
   createDevelopmentLogger(name: string): TypedLogger {
     return this.create(name, {
@@ -74,7 +89,11 @@ export class LoggerFactory {
   }
 
   /**
-   * Create a logger for production
+   * Creates a pre-configured logger optimized for production environments.
+   * (e.g., JSON console output, file transport, info level).
+   * @param name - The name for the production logger.
+   * @param logFile - Optional path to a file for log output.
+   * @returns A logger instance configured for production.
    */
   createProductionLogger(name: string, logFile?: string): TypedLogger {
     const transports = [
@@ -105,7 +124,9 @@ export class LoggerFactory {
   }
 
   /**
-   * Create a logger for testing
+   * Creates a pre-configured logger for testing environments (silent by default).
+   * @param name - The name for the test logger.
+   * @returns A logger instance configured for testing.
    */
   createTestLogger(name: string): TypedLogger {
     return this.create(name, {
@@ -116,7 +137,7 @@ export class LoggerFactory {
   }
 
   /**
-   * Close all managed loggers
+   * Gracefully closes all logger instances managed by the factory.
    */
   async closeAll(): Promise<void> {
     const promises = Array.from(this.loggers.values()).map(logger => logger.close());
@@ -125,7 +146,8 @@ export class LoggerFactory {
   }
 
   /**
-   * List all managed logger names
+   * Returns the names of all loggers currently managed by the factory.
+   * @returns An array of logger names.
    */
   getLoggerNames(): string[] {
     return Array.from(this.loggers.keys());
@@ -133,11 +155,12 @@ export class LoggerFactory {
 }
 
 /**
- * Middleware functions
+ * A collection of pre-built middleware functions.
  */
 export const middleware = {
   /**
-   * Add request ID to log entries
+   * Creates a middleware to add a request ID to each log entry.
+   * @param getRequestId - A function that returns the request ID string.
    */
   requestId: (getRequestId: () => string) => {
     return (entry: any, next: () => void) => {
@@ -148,7 +171,7 @@ export const middleware = {
   },
 
   /**
-   * Add timestamp information
+   * Creates a middleware to add a high-resolution timestamp to each log entry.
    */
   timestamp: () => {
     return (entry: any, next: () => void) => {
@@ -159,7 +182,8 @@ export const middleware = {
   },
 
   /**
-   * Filter sensitive information
+   * Creates a middleware to redact sensitive fields from the log context.
+   * @param sensitiveFields - An array of keys to redact. Defaults to ['password', 'token', 'secret'].
    */
   sanitize: (sensitiveFields: string[] = ['password', 'token', 'secret']) => {
     return (entry: any, next: () => void) => {
@@ -171,7 +195,7 @@ export const middleware = {
   },
 
   /**
-   * Add caller information
+   * Creates a middleware to add caller information (file, line, function) to each log entry.
    */
   caller: () => {
     return (entry: any, next: () => void) => {
@@ -202,7 +226,11 @@ export const middleware = {
 };
 
 /**
- * Utility functions
+ * Recursively sanitizes an object by redacting values of sensitive keys.
+ * @param obj - The object to sanitize.
+ * @param sensitiveFields - An array of keys to redact.
+ * @returns A new, sanitized object.
+ * @internal
  */
 function sanitizeObject(obj: any, sensitiveFields: string[]): any {
   if (typeof obj !== 'object' || obj === null) {
@@ -228,7 +256,11 @@ function sanitizeObject(obj: any, sensitiveFields: string[]): any {
 }
 
 /**
- * Environment-based logger factory
+ * Creates a new logger instance with a configuration based on the environment.
+ * Detects 'production', 'test', or 'development' from `process.env.NODE_ENV`.
+ * @param name - The name of the logger.
+ * @param env - Optional override for the environment.
+ * @returns A pre-configured logger instance.
  */
 export function createLogger(name: string, env?: string): TypedLogger {
   const environment = env ?? process.env.NODE_ENV ?? 'development';
@@ -248,27 +280,30 @@ export function createLogger(name: string, env?: string): TypedLogger {
 }
 
 /**
- * Default logger instance
+ * A default, globally accessible logger instance.
  */
 export const defaultLogger = createLogger('default');
 
-/**
- * Convenience functions using default logger
- */
+/** Logs a `trace` message using the default logger. */
 export const trace = (message: string, context?: Record<string, unknown>) => 
   defaultLogger.trace(message, context);
 
+/** Logs a `debug` message using the default logger. */
 export const debug = (message: string, context?: Record<string, unknown>) => 
   defaultLogger.debug(message, context);
 
+/** Logs an `info` message using the default logger. */
 export const info = (message: string, context?: Record<string, unknown>) => 
   defaultLogger.info(message, context);
 
+/** Logs a `warn` message using the default logger. */
 export const warn = (message: string, context?: Record<string, unknown>) => 
   defaultLogger.warn(message, context);
 
+/** Logs an `error` message using the default logger. */
 export const error = (message: string, error?: Error, context?: Record<string, unknown>) => 
   defaultLogger.error(message, error, context);
 
+/** Logs a `fatal` message using the default logger. */
 export const fatal = (message: string, error?: Error, context?: Record<string, unknown>) => 
   defaultLogger.fatal(message, error, context);

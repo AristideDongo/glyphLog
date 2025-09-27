@@ -1,5 +1,5 @@
 {
-  "name": "logger",
+  "name": "logify",
   "version": "1.0.0",
   "description": "A fully typed, configurable logging library for TypeScript/JavaScript applications",
   "main": "dist/index.js",
@@ -36,16 +36,16 @@
     "file",
     "json"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Aristide Dongo <dongokouamearistide95@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/typed-logger.git"
+    "url": "https://github.com/AristideDongo/logify.git"
   },
   "bugs": {
-    "url": "https://github.com/your-org/typed-logger/issues"
+    "url": "https://github.com/AristideDongo/logger-pack/issues"
   },
-  "homepage": "https://github.com/your-org/typed-logger#readme",
+  "homepage": "https://github.com/AristideDongo/logger-pack#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",

@@ -1,9 +1,9 @@
 # 🚀 TypeScript Typed Logger
 
-[![npm version](https://badge.fury.io/js/@your-org/typed-logger.svg)](https://badge.fury.io/js/@your-org/typed-logger)
+[![npm version](https://badge.fury.io/js/logify.svg)](https://badge.fury.io/js/logify)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://github.com/your-org/typed-logger/workflows/CI/badge.svg)](https://github.com/your-org/typed-logger/actions)
+[![Build Status](https://github.com/AristideDongo/logger-pack/workflows/CI/badge.svg)](https://github.com/AristideDongo/logger-pack/actions)
 
 Une bibliothèque de logging moderne, entièrement typée et configurable pour TypeScript/JavaScript avec support des transports multiples, middleware, et logging structuré.
 
@@ -23,21 +23,21 @@ Une bibliothèque de logging moderne, entièrement typée et configurable pour T
 ## 📦 Installation
 
 ```bash
-npm install @your-org/typed-logger
+npm install logify
 ```
 
 ```bash
-yarn add @your-org/typed-logger
+yarn add logify
 ```
 
 ```bash
-pnpm add @your-org/typed-logger
+pnpm add logify
 ```
 
 ## 🚀 Utilisation rapide
 
 ```typescript
-import { createLogger } from '@your-org/typed-logger';
+import { createLogger } from 'logify';
 
 const logger = createLogger('my-app');
 
@@ -51,7 +51,7 @@ logger.error('Something went wrong', new Error('Database connection failed'));
 ### Configuration de base
 
 ```typescript
-import { Logger, LogLevel, ConsoleTransport } from '@your-org/typed-logger';
+import { Logger, LogLevel, ConsoleTransport } from 'logify';
 
 const logger = new Logger({
   level: LogLevel.INFO,
@@ -95,7 +95,7 @@ requestLogger.warn('Request took too long', { duration: 2500 });
 
 #### Console Transport
 ```typescript
-import { ConsoleTransport } from '@your-org/typed-logger';
+import { ConsoleTransport } from 'logify';
 
 const transport = new ConsoleTransport({
   level: LogLevel.INFO,
@@ -107,7 +107,7 @@ const transport = new ConsoleTransport({
 
 #### File Transport
 ```typescript
-import { FileTransport } from '@your-org/typed-logger';
+import { FileTransport } from 'logify';
 
 const transport = new FileTransport({
   level: LogLevel.DEBUG,
@@ -120,7 +120,7 @@ const transport = new FileTransport({
 
 #### HTTP Transport
 ```typescript
-import { HttpTransport } from '@your-org/typed-logger';
+import { HttpTransport } from 'logify';
 
 const transport = new HttpTransport({
   level: LogLevel.ERROR,
@@ -135,7 +135,7 @@ const transport = new HttpTransport({
 
 #### Memory Transport (pour les tests)
 ```typescript
-import { MemoryTransport } from '@your-org/typed-logger';
+import { MemoryTransport } from 'logify';
 
 const transport = new MemoryTransport({
   level: LogLevel.TRACE,
@@ -151,7 +151,7 @@ transport.clear();
 
 #### JSON Formatter
 ```typescript
-import { JsonFormatter } from '@your-org/typed-logger';
+import { JsonFormatter } from 'logify';
 
 const formatter = new JsonFormatter();
 // Sortie: {"timestamp":"2023-01-01T00:00:00.000Z","level":"INFO","message":"Hello"}
@@ -159,7 +159,7 @@ const formatter = new JsonFormatter();
 
 #### Console Formatter
 ```typescript
-import { ConsoleFormatter } from '@your-org/typed-logger';
+import { ConsoleFormatter } from 'logify';
 
 const formatter = new ConsoleFormatter({
   colors: true,
@@ -170,7 +170,7 @@ const formatter = new ConsoleFormatter({
 
 #### Dev Formatter
 ```typescript
-import { DevFormatter } from '@your-org/typed-logger';
+import { DevFormatter } from 'logify';
 
 const formatter = new DevFormatter();
 // Sortie avec icônes et indentation pour le développement
@@ -179,7 +179,7 @@ const formatter = new DevFormatter();
 ### Middleware
 
 ```typescript
-import { middleware } from '@your-org/typed-logger';
+import { middleware } from 'logify';
 
 // Middleware de Request ID
 logger.use(middleware.requestId(() => generateRequestId()));
@@ -216,7 +216,7 @@ logger.profileEnd('user-processing');
 ### Factory Pattern
 
 ```typescript
-import { LoggerFactory } from '@your-org/typed-logger';
+import { LoggerFactory } from 'logify';
 
 const factory = LoggerFactory.getInstance({
   defaultConfig: {
@@ -253,7 +253,7 @@ try {
 ### Configuration par environnement
 
 ```typescript
-import { createLogger } from '@your-org/typed-logger';
+import { createLogger } from 'logify';
 
 // Automatiquement configuré selon NODE_ENV
 const logger = createLogger('app');
@@ -265,7 +265,7 @@ const logger = createLogger('app', 'production');
 ## 🧪 Tests
 
 ```typescript
-import { MemoryTransport } from '@your-org/typed-logger';
+import { MemoryTransport } from 'logify';
 
 const memoryTransport = new MemoryTransport();
 const logger = new Logger({
@@ -308,7 +308,7 @@ import {
   FileTransport,
   HttpTransport,
   middleware,
-} from '@your-org/typed-logger';
+} from 'logify';
 
 const logger = new Logger({
   level: LogLevel.DEBUG,
@@ -381,16 +381,12 @@ import type {
   PerformanceLogger,
   LoggerConfig,
   LogMiddleware,
-} from 'logger';
+} from 'logify';
 ```
 
 ## 🤝 Contribution
 
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/amazing-feature`)
-3. Commit les changements (`git commit -m 'Add amazing feature'`)
-4. Push la branche (`git push origin feature/amazing-feature`)
-5. Ouvrir une Pull Request
+Les contributions sont les bienvenues ! Veuillez consulter le fichier [CONTRIBUTING.md](CONTRIBUTING.md) pour savoir comment participer.
 
 ## 📄 Licence
 
