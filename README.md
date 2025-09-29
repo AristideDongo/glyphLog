@@ -32,21 +32,21 @@ A modern, fully typed and configurable logging library for TypeScript/JavaScript
 ## 📦 Installation
 
 ```bash
-npm install logify
+npm install glyphLog
 ```
 
 ```bash
-yarn add logify
+yarn add glyphLog
 ```
 
 ```bash
-pnpm add logify
+pnpm add glyphLog
 ```
 
 ## 🚀 Quick usage
 
 ```typescript
-import { createLogger } from 'logify';
+import { createLogger } from 'glyphLog';
 
 const logger = createLogger('my-app');
 
@@ -62,7 +62,7 @@ For a complete API guide and configuration options, please visit our [complete d
 ### Basic configuration
 
 ```typescript
-import { Logger, LogLevel, ConsoleTransport } from 'logify';
+import { Logger, LogLevel, ConsoleTransport } from 'glyphLog';
 
 const logger = new Logger({
   level: LogLevel.INFO,
@@ -106,7 +106,7 @@ requestLogger.warn('Request took too long', { duration: 2500 });
 
 #### Console Transport
 ```typescript
-import { ConsoleTransport } from 'logify';
+import { ConsoleTransport } from 'glyphLog';
 
 const transport = new ConsoleTransport({
   level: LogLevel.INFO,
@@ -118,7 +118,7 @@ const transport = new ConsoleTransport({
 
 #### File Transport
 ```typescript
-import { FileTransport } from 'logify';
+import { FileTransport } from 'glyphLog';
 
 const transport = new FileTransport({
   level: LogLevel.DEBUG,
@@ -131,7 +131,7 @@ const transport = new FileTransport({
 
 #### HTTP Transport
 ```typescript
-import { HttpTransport } from 'logify';
+import { HttpTransport } from 'glyphLog';
 
 const transport = new HttpTransport({
   level: LogLevel.ERROR,
@@ -146,7 +146,7 @@ const transport = new HttpTransport({
 
 #### Memory Transport (for testing)
 ```typescript
-import { MemoryTransport } from 'logify';
+import { MemoryTransport } from 'glyphLog';
 
 const transport = new MemoryTransport({
   level: LogLevel.TRACE,
@@ -162,7 +162,7 @@ transport.clear();
 
 #### JSON Formatter
 ```typescript
-import { JsonFormatter } from 'logify';
+import { JsonFormatter } from 'glyphLog';
 
 const formatter = new JsonFormatter();
 // Output: {"timestamp":"2023-01-01T00:00:00.000Z","level":"INFO","message":"Hello"}
@@ -170,7 +170,7 @@ const formatter = new JsonFormatter();
 
 #### Console Formatter
 ```typescript
-import { ConsoleFormatter } from 'logify';
+import { ConsoleFormatter } from 'glyphLog';
 
 const formatter = new ConsoleFormatter({
   colors: true,
@@ -181,7 +181,7 @@ const formatter = new ConsoleFormatter({
 
 #### Dev Formatter
 ```typescript
-import { DevFormatter } from 'logify';
+import { DevFormatter } from 'glyphLog';
 
 const formatter = new DevFormatter();
 // Output with icons and indentation for development
@@ -190,7 +190,7 @@ const formatter = new DevFormatter();
 ### Middleware
 
 ```typescript
-import { middleware } from 'logify';
+import { middleware } from 'glyphLog';
 
 // Request ID middleware
 logger.use(middleware.requestId(() => generateRequestId()));
@@ -227,7 +227,7 @@ logger.profileEnd('user-processing');
 ### Factory Pattern
 
 ```typescript
-import { LoggerFactory } from 'logify';
+import { LoggerFactory } from 'glyphLog';
 
 const factory = LoggerFactory.getInstance({
   defaultConfig: {
@@ -264,7 +264,7 @@ try {
 ### Environment-based configuration
 
 ```typescript
-import { createLogger } from 'logify';
+import { createLogger } from 'glyphLog';
 
 // Automatically configured based on NODE_ENV
 const logger = createLogger('app');
@@ -284,7 +284,7 @@ Discover concrete use cases and integrations in the [examples repository](https:
 ## 🧪 Testing
 
 ```typescript
-import { MemoryTransport } from 'logify';
+import { MemoryTransport } from 'glyphLog';
 
 const memoryTransport = new MemoryTransport();
 const logger = new Logger({
@@ -327,7 +327,7 @@ import {
   FileTransport,
   HttpTransport,
   middleware,
-} from 'logify';
+} from 'glyphLog';
 
 const logger = new Logger({
   level: LogLevel.DEBUG,
@@ -400,7 +400,7 @@ import type {
   PerformanceLogger,
   LoggerConfig,
   LogMiddleware,
-} from 'logify';
+} from 'glyphLog';
 ```
 
 ## 🤝 Contributing

@@ -1,6 +1,6 @@
-# Contributing to Logify
+# Contributing to glyphLog
 
-We're excited that you want to contribute to Logify! All help is welcome, whether it's bug reports, new features, or documentation improvements.
+We're excited that you want to contribute to glyphLog! All help is welcome, whether it's bug reports, new features, or documentation improvements.
 
 ## How to Contribute
 
@@ -34,4 +34,4 @@ We're excited that you want to contribute to Logify! All help is welcome, whethe
 - Code must be written in TypeScript.
 - Add JSDoc comments for all new exported functions, classes, and methods.
 
-Thank you for contributing to make Logify even better!
+Thank you for contributing to make glyphLog even better!
